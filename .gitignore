@@ -1,0 +1,6 @@
+__pycache__/
+venv/
+
+docs/*
+!docs/javascripts/
+!docs/tags.md
