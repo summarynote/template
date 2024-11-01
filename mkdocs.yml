@@ -28,6 +28,7 @@ theme:
     - content.code.select
     - content.code.annotate
     - content.tabs.link
+    - navigation.tabs
 
 extra:
   alternate:
@@ -97,6 +98,16 @@ extra_css:
   - https://unpkg.com/katex@0/dist/katex.min.css
 
 nav:
-  - Home: index.md
-  - Test: test.md
+  - ko:
+    - Home: ko/index.md
+    - Hello:
+      - ko/hello/hello.md
+    - 자료구조:
+      - 알고리즘: ko/datastructures/algorithms.md
+      - 자구: ko/datastructures/datastructures.md
+    - Test: test.md
+  - en:
+    - DS:
+      - algo: en/datastructures/algorithms.md
+      - ds: en/datastructures/datastructures.md
   # - google: "https://google.com"
