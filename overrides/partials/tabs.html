@@ -12,7 +12,10 @@
   <div class="md-grid">
     <ul class="md-tabs__list">
       {% for nav_item in nav %}
-        {% if nav_item.title in cur_lang %}
+        {% if nav_item.title in cur_lang 
+          or (page.url == '' and nav_item.title == 'ko') 
+          or ('null' in cur_lang and nav_item.title == 'ko')
+        %}
           {% for real_nav_item in nav_item.children %}
             {{ item.render(real_nav_item) }}
           {% endfor %}

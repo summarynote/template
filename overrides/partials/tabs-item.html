@@ -1,17 +1,3 @@
-{% set langs = [] %}
-{% for alt in config.extra.alternate %}
-  {{ langs.append(alt.lang) }}
-{% endfor %}
-
-{% if page %}
-  {% set url_list = page.url.split('/') %}
-  {% if url_list[0] in langs %}
-    {% set cur_lang = url_list[0] %}
-  {% endif %}
-{% else %}
-  {% set url_list = [] %}
-{% endif %}
-
 <!-- Render navigation link content -->
 {% macro render_content(nav_item, ref = nav_item) %}
 
@@ -56,7 +42,7 @@
   {% else %}
     <li class="{{ class }}">
       <a href="{{ nav_item.url | url }}" class="md-tabs__link">
-        {{ cur_lang }} {{ render_content(nav_item) }}
+        {{ render_content(nav_item) }}
       </a>
     </li>
   {% endif %}

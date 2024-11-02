@@ -1,3 +1,7 @@
+{% import "partials/translang.html" as trans with context %}
+
+{% set cur_lang = trans.get_curlang() %}
+
 <!-- Site language selector -->
 <div class="md-header__option">
   <div class="md-select">
@@ -12,8 +16,18 @@
       <ul class="md-select__list">
         {% for alt in config.extra.alternate %}
           <li class="md-select__item">
+            {% set ref_url = '' %}
+            {% if alt.lang in cur_lang %}
+              {% set ref_url = page.url | url %}
+            {% elif page is not none %}
+              {% set ref_url = (alt.link ~ page.url[3:]) | url %}
+            {% endif %}
+
+            {% if 'null' in cur_lang %}
+              {% set ref_url = page.url | url %}
+            {% endif %}
             <a
-              href="{{ alt.link ~ page.url[3:] if page is not none else alt.link | url }}"
+              href="{{ ref_url }}"
               hreflang="{{ alt.lang }}"
               class="md-select__link"
             >
