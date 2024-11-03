@@ -33,6 +33,7 @@ def on_page_markdown(markdown, page, **kwargs):
 
     if 'md' in page.file.src_uri:
       list_dir = os.listdir(dir_path)
+      path_from_docs = dir_path[dir_path.find('docs'):]
       list_dir = sort_list(list_dir)
 
       for item in list_dir:
@@ -44,7 +45,7 @@ def on_page_markdown(markdown, page, **kwargs):
           result += f'''=== "{ext_dict[extension]}"
 
     ``` {extension}
-    --8<-- "{item}"
+    --8<-- "{path_from_docs + '/' + item}"
     ```
 
 '''

@@ -79,8 +79,8 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.snippets:
-      base_path:
-        - !relative
+      # base_path:
+      #   - !relative
   - pymdownx.tabbed:
       alternate_style: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
@@ -98,17 +98,5 @@ extra_javascript:
 extra_css:
   - https://unpkg.com/katex@0/dist/katex.min.css
 
-nav:
-  - ko:
-    - Home: ko/index.md
-    - Hello:
-      - ko/hello/hello.md
-    - 자료구조:
-      - 알고리즘: ko/datastructures/algorithms.md
-      - 자구: ko/datastructures/datastructures.md
-    - Test: test.md
-  - en:
-    - DS:
-      - algo: en/datastructures/algorithms.md
-      - ds: en/datastructures/datastructures.md
-  # - google: "https://google.com"
+# docs_dir: ../docs
+INHERIT: docs/custom.yml
